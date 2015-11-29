@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `diesel` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, diesel">
+
+    <title>diesel - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'></p><script>window.sidebarCurrent = {name: 'diesel', ty: 'mod', relpath: '../'};</script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>diesel</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-0' class='srclink' href='../src/diesel/lib.rs.html#1-70' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Diesel is an ORM and query builder designed to reduce the boilerplate for database
+interactions. <a href="https://github.com/sgrif/diesel#getting-started">A getting started guide</a> can be
+found in the README.</p>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub use expression::{<a class='trait' href='../diesel/expression/trait.Expression.html' title='diesel::expression::Expression'>Expression</a>, <a class='trait' href='../diesel/expression/trait.SelectableExpression.html' title='diesel::expression::SelectableExpression'>SelectableExpression</a>, <a class='trait' href='../diesel/expression/trait.BoxableExpression.html' title='diesel::expression::BoxableExpression'>BoxableExpression</a>};</code></td></tr><tr><td><code>pub use expression::<a class='mod' href='../diesel/expression/expression_methods/index.html' title='diesel::expression::expression_methods'>expression_methods</a>::*;</code></td></tr><tr><td><code>pub use query_source::{QuerySource, <a class='trait' href='../diesel/query_source/trait.Queriable.html' title='diesel::query_source::Queriable'>Queriable</a>, <a class='trait' href='../diesel/query_source/trait.Table.html' title='diesel::query_source::Table'>Table</a>, <a class='trait' href='../diesel/query_source/trait.Column.html' title='diesel::query_source::Column'>Column</a>};</code></td></tr><tr><td><code>pub use result::{<a class='type' href='../diesel/result/type.QueryResult.html' title='diesel::result::QueryResult'>QueryResult</a>, <a class='enum' href='../diesel/result/enum.TransactionError.html' title='diesel::result::TransactionError'>TransactionError</a>, <a class='type' href='../diesel/result/type.TransactionResult.html' title='diesel::result::TransactionResult'>TransactionResult</a>, <a class='enum' href='../diesel/result/enum.ConnectionError.html' title='diesel::result::ConnectionError'>ConnectionError</a>, <a class='type' href='../diesel/result/type.ConnectionResult.html' title='diesel::result::ConnectionResult'>ConnectionResult</a>};</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='mod' href='data_types/index.html'
+                               title='diesel::data_types'>data_types</a></td>
+                        <td class='docblock short'>
+                             <p>Structs to represent the primitive equivalent of SQL types where
+there is no existing Rust primitive, or where using it would be
+confusing (such as date and time types)</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='mod' href='expression/index.html'
+                               title='diesel::expression'>expression</a></td>
+                        <td class='docblock short'>
+                             <p>AST types representing various typed SQL expressions. Almost all types
+implement either <a href="trait.Expression.html"><code>Expression</code></a> or
+<a href="trait.AsExpression.html"><code>AsExpression</code></a>.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='mod' href='helper_types/index.html'
+                               title='diesel::helper_types'>helper_types</a></td>
+                        <td class='docblock short'>
+                             <p>Provide helper types for concisely writing the return type of functions.
+As with iterators, it is unfortunately difficult to return a partially
+constructed query without exposing the exact implementation of the
+function. Without higher kinded types, these various DSLs can&#39;t be
+combined into a single trait for boxing purposes.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='mod' href='query_builder/index.html'
+                               title='diesel::query_builder'>query_builder</a></td>
+                        <td class='docblock short'>
+                             <p>Contains traits responsible for the actual construction of SQL statements</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='mod' href='query_source/index.html'
+                               title='diesel::query_source'>query_source</a></td>
+                        <td class='docblock short'>
+                             <p>Types in this module are mostly internal and automatically generated. You
+shouldn&#39;t need to interact with these types during normal usage, other than
+the methods on <a href="trait.Table.html"><code>Table</code></a></p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='mod' href='result/index.html'
+                               title='diesel::result'>result</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='mod' href='types/index.html'
+                               title='diesel::types'>types</a></td>
+                        <td class='docblock short'>
+                             <p>Types which represent a native SQL data type, and the conversions between
+them and Rust primitives. Additional types can be added by other crates.</p>
+
+                        </td>
+                    </tr>
+                </table><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='macro' href='macro.infix_predicate!.html'
+                               title='diesel::infix_predicate!'>infix_predicate!</a></td>
+                        <td class='docblock short'>
+                             <p>Useful for libraries adding support for new SQL types. Apps should never
+need to call this</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='macro' href='macro.no_arg_sql_function!.html'
+                               title='diesel::no_arg_sql_function!'>no_arg_sql_function!</a></td>
+                        <td class='docblock short'>
+                             <p>Declare a 0 argument SQL function for use in your code. This will generate a
+unit struct, which is an expression representing calling this function. See
+<a href="expression/dsl/struct.now.html"><code>now</code></a> for example output. <code>now</code> was
+generated using:</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='macro' href='macro.numeric_expr!.html'
+                               title='diesel::numeric_expr!'>numeric_expr!</a></td>
+                        <td class='docblock short'>
+                             <p>Indicates that an expression allows all numeric operators. If you create new
+SQL functions that return a numeric type, you should invoke this macro that
+type. Unfortunately, Rust disallows us from automatically implementing <code>Add</code>
+for types which implement <code>Expression</code>, under its orphan rules.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='macro' href='macro.operator_allowed!.html'
+                               title='diesel::operator_allowed!'>operator_allowed!</a></td>
+                        <td class='docblock short'>
+                             <p>Implements the Rust operator for a given type. If you create a new SQL
+function, which returns a type that you&#39;d like to use an operator on, you
+should invoke this macro. Unfortunately, Rust disallows us from
+automatically implementing <code>Add</code> and other traits from <code>std::ops</code>, under its
+orphan rules.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='macro' href='macro.postfix_predicate!.html'
+                               title='diesel::postfix_predicate!'>postfix_predicate!</a></td>
+                        <td class='docblock short'>
+                             <p>Useful for libraries adding support for new SQL types. Apps should never
+need to call this.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='macro' href='macro.sql_function!.html'
+                               title='diesel::sql_function!'>sql_function!</a></td>
+                        <td class='docblock short'>
+                             <p>Declare a sql function for use in your code. Useful if you have your own SQL functions that
+you&#39;d like to use. You can optionally provide a doc string as well. <code>$struct_name</code> should just
+be any unique name. You will not need to reference it in your code, but it is required due to
+the fact that <a href="https://github.com/rust-lang/rust/issues/29599#issuecomment-153927167"><code>concat_idents!</code> is
+useless</a>.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='macro' href='macro.table!.html'
+                               title='diesel::table!'>table!</a></td>
+                        <td class='docblock short'>
+                             <p>Specifies that a table exists, and what columns it has. This will create a
+new public module, with the same name, as the name of the table. In this
+module, you&#39;ll find a unit struct named <code>table</code>, and a unit struct with the
+names of each of the columns. In the definition, you can also specify an
+additional set of columns which exist, but should not be selected by default
+(for example, for things like full text search)</p>
+
+                        </td>
+                    </tr>
+                </table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.Connection.html'
+                               title='diesel::Connection'>Connection</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.Cursor.html'
+                               title='diesel::Cursor'>Cursor</a></td>
+                        <td class='docblock short'>
+                             <p>The type returned by various <a href="struct.Connection.html"><code>Connection</code></a> methods.
+Acts as an iterator over <code>T</code>.</p>
+
+                        </td>
+                    </tr>
+                </table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='trait' href='trait.BelongingToDsl.html'
+                               title='diesel::BelongingToDsl'>BelongingToDsl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='trait' href='trait.CountDsl.html'
+                               title='diesel::CountDsl'>CountDsl</a></td>
+                        <td class='docblock short'>
+                             <p>Adds a simple <code>count</code> function to queries. Automatically implemented for all
+types which implement <code>SelectDsl</code>.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='trait' href='trait.FilterDsl.html'
+                               title='diesel::FilterDsl'>FilterDsl</a></td>
+                        <td class='docblock short'>
+                             <p>Adds to the <code>WHERE</code> clause of a query. If there is already a <code>WHERE</code> clause,
+the result will be <code>old AND new</code>. This is automatically implemented for the
+various query builder types.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='trait' href='trait.Insertable.html'
+                               title='diesel::Insertable'>Insertable</a></td>
+                        <td class='docblock short'>
+                             <p>Represents that a structure can be used to to insert a new row into the database.
+Implementations can be automatically generated by
+<a href="https://github.com/sgrif/diesel/tree/master/diesel_codegen#insertable_intotable_name"><code>#[insertable_into]</code></a>.
+This is automatically implemented for <code>&amp;[T]</code>, <code>Vec&lt;T&gt;</code> and <code>&amp;Vec&lt;T&gt;</code> for inserting more than
+one record.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='trait' href='trait.JoinTo.html'
+                               title='diesel::JoinTo'>JoinTo</a></td>
+                        <td class='docblock short'>
+                             <p>Indicates that two tables can be used together in a JOIN clause.
+Implementations of this trait will be generated for you automatically by
+the <a href="FIXME:%20Add%20link">association annotations</a> from codegen.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='trait' href='trait.LimitDsl.html'
+                               title='diesel::LimitDsl'>LimitDsl</a></td>
+                        <td class='docblock short'>
+                             <p>Sets the limit clause of a query. If there was already a limit clause, it
+will be overridden. This is automatically implemented for the various query
+builder types.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='trait' href='trait.LoadDsl.html'
+                               title='diesel::LoadDsl'>LoadDsl</a></td>
+                        <td class='docblock short'>
+                             <p>Methods to execute a query given a connection. These are automatically implemented for the
+various query types.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='trait' href='trait.OffsetDsl.html'
+                               title='diesel::OffsetDsl'>OffsetDsl</a></td>
+                        <td class='docblock short'>
+                             <p>Sets the offset clause of a query. If there was already a offset clause, it
+will be overridden. This is automatically implemented for the various query
+builder types.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='trait' href='trait.OrderDsl.html'
+                               title='diesel::OrderDsl'>OrderDsl</a></td>
+                        <td class='docblock short'>
+                             <p>Sets the order clause of a query. If there was already a order clause, it
+will be overridden. The expression passed to <code>order</code> must actually be valid
+for the query. See also:
+<a href="expression/expression_methods/global_expression_methods/trait.ExpressionMethods.html#method.desc"><code>.desc()</code></a>
+and <a href="expression/expression_methods/global_expression_methods/trait.ExpressionMethods.html#method.asc"><code>.asc()</code></a></p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='trait' href='trait.SelectDsl.html'
+                               title='diesel::SelectDsl'>SelectDsl</a></td>
+                        <td class='docblock short'>
+                             <p>Sets the select clause of a query. If there was already a select clause, it
+will be overridden. The expression passed to <code>select</code> must actually be valid
+for the query (only contains columns from the target table, doesn&#39;t mix
+aggregate + non-aggregate expressions, etc).</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='trait' href='trait.WithDsl.html'
+                               title='diesel::WithDsl'>WithDsl</a></td>
+                        <td class='docblock short'>
+                             <p>Adds an additional expression to the FROM clause. This is useful for things
+like full text search, where you need to access the result of an expensive
+computation for the where clause that shouldn&#39;t be redone for each row, such
+as <code>plain_to_tsquery</code>. See
+<a href="expression/expression_methods/global_expression_methods/trait.ExpressionMethods.html#method.aliased"><code>.aliased</code></a>
+for more</p>
+
+                        </td>
+                    </tr>
+                </table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "diesel";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>
